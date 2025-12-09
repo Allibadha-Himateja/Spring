@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean class="com.iss.spring1.Models.Circle" name="circle">
+        <property name="radius" value="200"></property>
+        <!--        THIS IS PROPERTY INJECTION-->
+    </bean>
+    <bean class="com.iss.spring1.Models.Rectangle" name="rectangle">
+        <constructor-arg name="length" value="100"></constructor-arg>
+        <constructor-arg name="breadth" value="50"></constructor-arg>
+        <!--        THIS IS CONSTRUCTOR INJECTION-->
+    </bean>
+
+    <bean class="com.iss.spring1.Models.Drawing" name="drawing">
+<!--        INNER BEANS-->
+<!--        <property name="shape">-->
+<!--&lt;!&ndash;            <bean class="com.iss.spring1.Models.Circle">&ndash;&gt;-->
+<!--&lt;!&ndash;                <property name="radius" value="100"></property>&ndash;&gt;-->
+<!--&lt;!&ndash;             </bean>&ndash;&gt;-->
+<!--            <bean class="com.iss.spring1.Models.Rectangle" name="rectangle">-->
+<!--                <constructor-arg name="length" value="100"></constructor-arg>-->
+<!--                <constructor-arg name="breadth" value="200"></constructor-arg>-->
+<!--            </bean>-->
+<!--        </property>-->
+<!--        LIST OF BEANS-->
+        <property name="shapes">
+            <list>
+                <ref bean="rectangle"></ref>
+                <ref bean="circle"></ref>
+            </list>
+        </property>
+    </bean>
+<!--    <bean class="com.iss.spring1.Models.Drawing" name="drawing2" autowire="byType">-->
+<!--        -->
+<!--    </bean>-->
+    <bean class="com.iss.spring1.ApplicationContextAware3" name="applicationContextAware3"></bean>
+</beans>

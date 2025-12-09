@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean class="com.iss.spring1.Models.Circle" name="shape">
+        <property name="radius" value="200"></property>
+<!--        THIS IS PROPERTY INJECTION-->
+    </bean>
+    <bean class="com.iss.spring1.Models.Rectangle" name="rectangle">
+        <constructor-arg name="length" value="100"></constructor-arg>
+        <constructor-arg name="breadth" value="50"></constructor-arg>
+<!--        THIS IS CONSTRUCTOR INJECTION-->
+    </bean>
+    <!--  creating a bean is simple we have to make sure the bean have two main things
+          1) class
+          2) name or id (the above beans ive created using the name but we can also use the id)
+    -->
+
+    <!-- this below is the example for dependency injection and its types   -->
+    <!-- the drawing class requires the Shape reference   -->
+    <!-- we can able to pass the Shape through dependency injection  -->
+    <bean id="drawing" class="com.iss.spring1.Models.Drawing" autowire="byName">
+<!--        here we have -->
+    <!--   two methods of dependency injection those are the:
+           1)Property injection
+           2)Constructor injection
+     -->
+    <!-- for the drawing class we are having getters and setters for the Shape -> Property injection-->
+<!--        <property name="shape" ref="circle"></property>                                                             -->
+    <!-- for the injection we have to make sure we use the correct Property name
+        which is "shape" inside the Drawing class
+        we need two thing for the Property Injection
+        1)name(setter and getter property name)
+        2)ref(means reference to other bean) or value which we can set directly mostly primitive dataType
+    -->
+    </bean>
+</beans>
