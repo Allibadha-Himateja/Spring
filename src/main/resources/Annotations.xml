@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="
+           http://www.springframework.org/schema/beans
+           https://www.springframework.org/schema/beans/spring-beans.xsd
+           http://www.springframework.org/schema/context
+           https://www.springframework.org/schema/context/spring-context.xsd">
+
+    <!-- Your bean definitions, including <context:annotation-config/>, go here -->
+    <context:annotation-config/>
+    <!-- Component Scanning for all the Classes with @Component and it will create bean -->
+    <context:component-scan base-package="com.iss"></context:component-scan>
+
+    <!-- 	ResourceBundleMessageSource is similar to PropertySourcesPlaceholderConfigurer -->
+<!--    <bean id="messageSource" class="org.springframework.context.support.ResourceBundleMessageSource">-->
+<!--        <property name="basenames">-->
+<!--            <list>-->
+<!--                <value>jakarta.</value>-->
+<!--            </list>-->
+<!--        </property>-->
+<!--        &lt;!&ndash;     	here we can simply give the messages instead of messages.properties&ndash;&gt;-->
+<!--    </bean>-->
+
+
+
+
+    <!--     <bean id="foo" class="com.iss.Foo"></bean> -->
+    <bean id="bar" class="com.iss.spring1.Models.BarforAnnotations">
+        <property name="description" value="bar-1"></property>
+    </bean>
+    <bean name="bar2" class="com.iss.spring1.Models.BarforAnnotations">
+        <qualifier value="bar2"></qualifier>
+        <property name="description" value="bar-2"></property>
+    </bean>
+
+
+</beans>
