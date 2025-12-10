@@ -9,7 +9,7 @@ public class injection2 {
     public static void main(String args[])
     {
 
-        ApplicationContext context = new ClassPathXmlApplicationContext("InnerBeans&ByType,ByName.xml");
+        ApplicationContext context = new ClassPathXmlApplicationContext("InnerBeans&ByType,ByName1,2.xml");
 
         Drawing drawing = (Drawing) context.getBean("drawing");
         drawing.draw();

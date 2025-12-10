@@ -22,9 +22,9 @@ public class Injection1 {
     {
         // so for the traditional application they were using the BeanFactory
         // but for the best practises we have to use the ApplicationContext
-        ApplicationContext context = new ClassPathXmlApplicationContext("InnerBeans&ByType,ByName.xml");
+        ApplicationContext context = new ClassPathXmlApplicationContext("InnerBeans&ByType,ByName1,2.xml");
         // for the creation of the xml configuration file we have to create that
-        // src/main/resources,Property&Constructor.xml
+        // src/main/resources,Property&Constructor1.xml
         // NOTE: when we create a xml file from scratch we have to give the xml namespace......<?xmlversion....?
         // checkout the xml configuration for bean configuration...
 

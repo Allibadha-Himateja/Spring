@@ -22,5 +22,6 @@ public class ApplicationContextAware3 implements ApplicationContextAware {
         Drawing drawing = (Drawing) applicationContext.getBean("drawing");
         drawing.draw();
         System.out.println("we got the Drawing bean from ApplicationContextAware3");
+        // for checking this we need to run the injection2.java
     }
 }

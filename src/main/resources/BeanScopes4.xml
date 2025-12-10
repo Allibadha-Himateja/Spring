@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+        <bean class="com.iss.spring1.Models.Circle" name="circle" scope="prototype">
+            <property name="radius" value="20"></property>
+        </bean>
+
+        <bean class="com.iss.spring1.Models.Rectangle" name="rectangle">
+            <constructor-arg name="breadth" value="30"></constructor-arg>
+            <constructor-arg name="length" value="50"></constructor-arg>
+        </bean>
+
+        <bean class="com.iss.spring1.Models.Drawing" name="drawing">
+            <property name="shapes">
+                <list>
+                    <ref bean="rectangle"></ref>
+                    <ref bean="circle"></ref>
+                </list>
+            </property>
+        </bean>
+</beans>

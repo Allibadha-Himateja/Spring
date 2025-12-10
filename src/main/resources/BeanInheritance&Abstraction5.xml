@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+<!--     this below config is abstraction in xml bean configuration-->
+    <bean name="rectangle" abstract="true">
+    <property name="length" value="100"></property>
+    <property name="breadth" value="50"></property>
+</bean>
+    <bean class="com.iss.spring1.Models.Rectangle" name="rectangle2" parent="rectangle">
+
+    </bean>
+
+    <bean class="com.iss.spring1.Models.Drawing" name="drawing">
+        <property name="shapes">
+            <list>
+                <ref bean="rectangle2"></ref>
+            </list>
+        </property>
+    </bean><bean class="com.iss.spring1.Models.Drawing" name="drawing2" parent="drawing">
+    <property name="shapes">
+        <list merge="true">
+            <bean class="com.iss.spring1.Models.Circle" name="circle">
+                <property name="radius" value="25"></property>
+            </bean>
+        </list>
+    </property>
+    </bean>
+</beans>
