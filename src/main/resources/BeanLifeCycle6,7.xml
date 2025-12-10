@@ -2,14 +2,22 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd"
-        default-init-method="init" default-destroy-method="destroy">
-
+        >
+<!--    default-init-method="init" default-destroy-method="destroy"-->
 <!--    <bean class="com.iss.spring1.BeanLifeCycle6" name="beanLifeCycle6" init-method="init" destroy-method="destroy">-->
 <!--    </bean>-->
 
+<!--    WITH THE HELP OF BEANPOSTPROCESSOR INTERFACE -->
+    <bean class="com.iss.spring1.BeanPostProcessor7" name="beanPostProcessor7"></bean>
+
+<!--    WITH THE HELP OF PROPERTYPLACEHOLDERCONFIGURER WE CAN ABLE TO USE THE PROPERTIES.PROPERTIES HERE IN THE XML CONFIG-->
+    <bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <property name="location" value="classpath:properties.properties"></property>
+    </bean>
+
     <bean name="rectangle" abstract="true">
-        <property name="length" value="100"></property>
-        <property name="breadth" value="50"></property>
+        <property name="length" value="${rectangle.length}"></property>
+        <property name="breadth" value="${rectangle.breadth}"></property>
     </bean>
     <bean class="com.iss.spring1.Models.Rectangle" name="rectangle2" parent="rectangle">
 
@@ -25,7 +33,7 @@
     <property name="shapes">
         <list merge="true">
             <bean class="com.iss.spring1.Models.Circle" name="circle"> <!--  destroy-method="destroy" init-method="init"-->
-                <property name="radius" value="25"></property>
+                <property name="radius" value="${circle.radius}"></property>
             </bean>
         </list>
     </property>

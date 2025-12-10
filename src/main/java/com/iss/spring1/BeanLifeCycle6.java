@@ -1,7 +1,6 @@
 package com.iss.spring1;
 
 import com.iss.spring1.Models.Drawing;
-import org.springframework.context.ApplicationContext;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -30,7 +29,7 @@ public class BeanLifeCycle6 {
         // this below is the example for bean lifecycle methods
 
 
-        ConfigurableApplicationContext applicationContext=new ClassPathXmlApplicationContext("BeanLifeCycle6.xml");
+        ConfigurableApplicationContext applicationContext=new ClassPathXmlApplicationContext("BeanLifeCycle6,7.xml");
         applicationContext.registerShutdownHook();
 //        BeanLifeCycle6 bean=(BeanLifeCycle6)applicationContext.getBean("beanLifeCycle6",BeanLifeCycle6.class);
 //        bean.print();
